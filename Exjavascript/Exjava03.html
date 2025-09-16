@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>문제3: 기온</h1>
+    <input type="text" id="tempinput">
+    <button type="button" onclick="temp()">확인</button>
+    <p id="output"></p>
+
+    <script>
+        //1. function 생성
+        //2. document를 변수로 생성
+        //3. if문 작성
+        function temp(){
+            //value 속성은 input안의 입력한 값을 읽어들인다.
+            let tempinput =Number(document.getElementById(`tempinput`).value);
+            let output = document.getElementById(`output`);
+                console.log('여기까지오케이');
+            // if문 시작
+            if(tempinput < 0){
+                output.innerHTML='영하'
+            }else if(tempinput > 30){
+                console.log('여기까지오케이')
+                output.innerHTML ='더움'
+            }else {
+                console.log('여기는모름')
+                output.innerHTML ='보통'
+            }   
+        }  
+        
+    </script>
+</body>
+</html>

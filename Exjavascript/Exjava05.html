@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>문제5 평균 70이면 합격</h1>
+    <input type="text" id="input1">
+    <input type="text" id="input2">
+    <input type="text" id="input3">
+    <button type="button" onclick="okbtn()">확인</button>
+    <p id="output"></p>
+
+    <script>
+        //1. function 생성
+        //2. document를 변수로 생성
+        //3. if문 작성
+        function okbtn(){
+            //value 속성은 input안의 입력한 값을 읽어들인다.
+            let input1 =Number(document.getElementById(`input1`).value);
+            let input2 =Number(document.getElementById(`input2`).value);
+            let input3 =Number(document.getElementById(`input3`).value);
+            let output = document.getElementById(`output`);
+                console.log('여기까지오케이');
+
+                //평균을 구해서 avg 변수에 넣기
+            let avg = (input1 + input2 + input3)/3;
+            //if 
+            if(avg >=70){
+                output.innerHTML = '합격'
+            }else{
+                output.innerHTML = '불합격'
+            }
+        }  
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>문제: 입력한 문자가 'y' 또는 'Y'면 "예", 아니면 "아니오"</h1>
+    <input type="text" id="chky">
+    <button type="button" onclick="checkY()">확인</button>
+    <p id="output"></p>
+
+    <script>
+        //1. function 생성
+        //2. document를 변수로 생성
+        //3. if문 작성
+        function checkY(){
+            //value 속성은 input안의 입력한 값을 읽어들인다.
+            let chky = document.getElementById(`chky`).value;
+            let output = document.getElementById(`output`);
+
+        // if문 시작
+            if(chky == `y` ||  chky ==`Y`){
+                output.innerHTML =  `예`
+            }else{
+                output.innerHTML = `아니오`;
+            }
+        }    
+    </script>
+</body>
+</html>

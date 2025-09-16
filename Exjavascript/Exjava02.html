@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>문제2: 영어 점수가 50 이상이고 수학 점수가 50 이상이면 "통과"</h1>
+    <input type="text" id="scorebox">
+    <input type="text" id="scorebox2">
+    <button type="button" onclick="scores()">확인</button>
+    <p id="output"></p>
+
+    <script>
+        //1. function 생성
+        //2. document를 변수로 생성
+        //3. if문 작성
+        function scores(){
+            //value 속성은 input안의 입력한 값을 읽어들인다.
+            let scorebox =Number(document.getElementById(`scorebox`).value);
+            let scorebox2 =Number(document.getElementById(`scorebox2`).value);
+            let output = document.getElementById(`output`);
+
+        // if문 시작
+            if(scorebox >= 50 && scorebox2 >= 50){
+                output.innerHTML =  '합격'
+                console.log(output.innerHTML);
+            }else{
+                output.innerHTML = '불합격';
+            }
+        }    
+    </script>
+</body>
+</html>
