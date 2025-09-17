@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exwhile</title>
+</head>
+<body>
+    <h1>문제:사용자 입력 횝수만큼 Hello 출력</h1>
+    <input type="number" id="getnum">
+    <button type="button" onclick="btn()">실행</button> 
+    <p id="output"></p>
+
+    <script>
+        function btn(){
+        let getnum=Number(document.getElementById('getnum').value);
+        let output=document.getElementById('output');
+        //입력할 수를 담을 변수 초기화
+        let n = 1;
+        let result = '';//결과값 -문자 데이터를 출력할거라 초기값 ''
+        
+        //반복할 실행문 while
+        //cnt가 input에 입력받는 값을 담은 변수
+        while(n <= getnum){
+            result = result + "Hello<br/>";
+            //n을 누적하는 공식
+            n++;
+        }
+            output.innerHTML = result;
+    }
+
+    </script>
+</body>
+</html>

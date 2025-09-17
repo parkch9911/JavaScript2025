@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for반복문</title>
+</head>
+<body>
+    <script>
+        //1부터 10까지 콘솔에 출력
+        //for(let 초기변수; 조건식 ; 증감식 ;){}
+        //for문 순서 초기변수 - 조건식 - 실행문 - 증감값
+        //루프 1 : i=1 -> 1<=10 -> 출력
+        //루프 2 : i=1 -> 증감식(+1) -> 2<=10 -> i=2 출력
+        //루프 3 : i=2 -> 증감식(+1) -> 3<=10 -> i=3 출력
+        //루프 4 : i=3 -> 증감식(+1) -> 4<=10 -> i=4 출력
+        //루프 5 : i=4 -> 증감식(+1) -> 5<=10 -> i=5 출력
+        //루프 6 : i=5 -> 증감식(+1) -> 5<=10 -> i=6 출력
+        //루프 7 : i=6 -> 증감식(+1) -> 5<=10 -> i=7 출력
+        //루프 8 : i=7 -> 증감식(+1) -> 5<=10 -> i=8 출력
+        //루프 9 : i=8 -> 증감식(+1) -> 5<=10 -> i=9 출력
+        //루프 10 : i=9 -> 증감식(+1) -> 5<=10 -> i=10 출력
+        //루프 11 : i=10 -> 증감식(+1) -> 11<=10?-false -> 루프멈춤
+        let i = 0;
+        for(i = 1; i <= 10; i++){
+            console.log(i+' ');
+        }
+
+
+        //for문과 if문을 이용해서 1부터 20까지 중 홀수 출력
+        let result = 0;
+        for(i = 1; i <= 20; i++){
+            if(i % 2 == 1){
+                console.log(i)
+                result = result + i + ' '   
+            }
+        }
+        console.log(result)
+
+        //1부터 20까지 수 중 짝수의 합과 홀수의 합을 각각 더하여 출력하라
+        let dou = 0;
+        let sol = 0;
+        for(i = 1; i <= 20 ; i++){
+            if(i % 2 == 1){
+                sol = sol + i
+            }
+            
+            if(i % 2 == 0){
+                dou = dou + i 
+            }
+        }
+        console.log(sol);
+        console.log(dou);
+
+        //50부터 100까지 수 중에 홀수의 개수를 구하여 출력
+        let count = 0;
+        for(j = 50; j <= 100; j++){
+            if(j % 2 == 1){
+                count++;
+            }
+        }
+        console.log(count);
+
+        
+        //구구단 5단 출력  5 X 1 = 5
+        let k = 0;
+        for(k =1; k <=9; k++){
+            console.log(`2 X ${k} = ${2*k}`);
+            console.log(`3 X ${k} = ${3*k}`);
+            console.log(`4 X ${k} = ${4*k}`);
+            console.log(`5 X ${k} = ${5*k}`);
+            console.log(`6 X ${k} = ${6*k}`);
+            console.log(`7 X ${k} = ${7*k}`);
+            console.log(`8 X ${k} = ${8*k}`);
+            console.log(`9 X ${k} = ${9*k}`);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exwhile</title>
+</head>
+<body>
+    <h1>문제:1부터 10까지 중 홀수 출력</h1>
+    <button type="button" onclick="btn()">출력</button> 
+    <p id="output"></p>
+
+    <script>
+        function btn(){
+        let output=document.getElementById('output');
+        let n = 1;
+        let result = 0;
+    
+        while(n <= 10){
+            if(n % 2 == 1){
+                result = result + n + ' '
+            }
+            n++;
+            output.innerHTML = result;
+        }
+        
+    }
+
+    </script>
+</body>
+</html>
