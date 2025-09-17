@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>문제:2단 ~9단 출력</h1>
+    <button type="button" onclick="btn()">구구단을 외자 구구단을 외자 ♪</button> 
+    <p id="output"></p>
+
+    <script>
+        let result = 0;
+
+        function btn(){
+        let output=document.getElementById('output');
+        let i = 0;
+    // i = 2 -> j = 1~9까지 result 출력   
+    // 다시 바깥 for문 증감으로 이동 i = 3
+    // 조건 만족 하기때문에 다시 안쪽 for문으로 이동
+    for(let i = 2; i <= 9; i++){
+        result = result + i +'단<br/>';
+        for(let j = 1; j <= 9; j++){
+            //2 X 1 = 2 형태의 출력 
+            result = result + i + 'X' + j + '=' + i*j + '<br/>'    
+        }
+        output.innerHTML = result;
+        }
+    
+    }
+    
+
+
+    </script>
+</body>
+</html>

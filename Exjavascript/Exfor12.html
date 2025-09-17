@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제:직삼각형 뒤집힌거 만들기</title>
+</head>
+<body>
+    <h1>문제:직삼각형 뒤집힌거 만들기</h1>
+    <button type="button" onclick="btn()">만들기 ♪</button> 
+    <p id="output"></p>
+
+    <script>
+    // i = 2 -> j = 1~9까지 result 출력   
+    // 다시 바깥 for문 증감으로 이동 i = 3
+    // 조건 만족 하기때문에 다시 안쪽 for문으로 이동
+        let result = '';
+        let n = 5;
+        function btn(){
+        let output=document.getElementById('output');
+
+        
+        //let blank = '';  //공백 누적하는 변수
+    for(let i = 1; i<=n; i++){
+        for(let j = 1; j <= i*2-1; j++){ // 공백 for 점점 늘어나게
+            result = result +'&nbsp';
+        }
+        for(let k = 1; k <= n-i; k++){ // * for 홀수로 점점 줄어들게
+            result += '*';
+        }
+        result = result +'<br/>'
+    }
+        output.innerHTML=result;
+    
+    }
+
+    </script>
+</body>
+</html>

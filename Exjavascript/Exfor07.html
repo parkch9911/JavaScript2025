@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>문제:1부터 n까지의 합</h1>
+    <input type="number" id="inp">
+    <button type="button" onclick="btn()">실행</button> 
+    <p id="output"></p>
+
+    <script>
+        //전역변수 : 지금현재 스트립트 안 모든곳에 사용 할 수 있는 변수
+        result = '';
+
+        function btn(){
+        let inp=Number(document.getElementById('inp').value);
+        let output=document.getElementById('output');
+        let i = 0;
+        let result = 0;
+
+        for(i= 1; i <= inp; i++){
+            result = result + i;
+            console.log(result);
+        }
+        
+        output.innerHTML = `1부터 ${inp}까지의 합 : ${result}`;
+    }
+
+
+
+    </script>
+</body>
+</html>

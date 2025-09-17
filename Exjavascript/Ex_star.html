@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제:직삼각형만들기</title>
+</head>
+<body>
+    <h1>문제:직삼각형 만들기</h1>
+    <button type="button" onclick="btn()">제발 되라</button>
+    <p id="output"></p>
+
+    <script>
+        function btn(){
+        let btn = document.getElementById('btn');
+        let output = document.getElementById('output');
+        
+        let result = '';
+        let n = 5;
+        let i = 0;
+        let j = 0;
+        let k = 0;
+
+    for(let i = 1; i <= n; i++){
+        //n값 5 고정  i = 1 ~5 
+        //5 -1 =4
+        //5 -2 =3
+        //5 -3 =2
+        //5 -4 =1
+        for(let j = 1; j <= n-i; j++){ // 공백
+            result += '&nbsp&nbsp'
+        }
+        for(let k = 1; k <= i; k++){ //별
+            result += '*'
+        }
+        result += '<br/>'
+    }
+    output.innerHTML = result;
+}
+    </script>
+</body>
+</html>
