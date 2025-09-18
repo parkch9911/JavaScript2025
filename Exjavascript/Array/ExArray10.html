@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>심화연습문제10
+    </title>
+</head>
+<body>
+      <label>출석 배열 입력 (ex:출,결,출,지)</label><input type="text" id="sinput">
+      <button type="button" onclick="btnClick()">결과 확인</button>
+      <p id="output"></p>
+      <script>
+            //주어진 기본 배열
+            //     i     0   1   2   3   4    5
+            let att =[]
+            function btnClick(){
+            let sinput = document.getElementById('sinput').value;
+            let output = document.getElementById('output');
+
+            let result = '';
+            let result2 = '';   
+            let result3 = '';  
+            let i = 0;
+            //문자로된 데이터를 비교하기때문에 .map(Number)이용하여 숫자로 변할 필요 X
+            //.map(Number) => att=[1,23,3,4] 새로 생성됨
+            att = sinput.split(',')
+            for(let i = 0; i <= att.length-1; i++){
+                  //JavaScript 에서는 같다 라는 기호를 == 으로 쓰면 이해를 잘 못함.
+                  // 때문에 정확한 메모리 비교를 위해 === 을 써주는게 좋음.
+                  //trim() => 좌우 공백을 제거하는 함수
+                  if(att[i].trim() === '출'){
+                        result += ' '+'○'+' ,'
+                  }else if(att[i].trim() === '결'){
+                        result += ' '+'X'+' ,'
+                  }else if(att[i].trim() === '지'){
+                        result += ' '+'△'+' ,'
+                  }else result += ' '+'？'+' ,';
+                  
+            }
+            result = result.slice(0,-1);
+            output.innerHTML = result; 
+      }
+
+      
+      </script>
+</body>
+</html>

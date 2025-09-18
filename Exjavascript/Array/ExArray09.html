@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>심화연습문제9
+    </title>
+</head>
+<body>
+      <label>점수 : 배열 입력 (ex:12,7,5)</label><input type="text" id="sinput">
+      <button type="button" onclick="btnClick()">결과 확인</button>
+      <p id="output"></p>
+      <script>
+            //주어진 기본 배열
+            //     i     0   1   2   3   4    5
+            let numbers =[]
+            function btnClick(){
+            let sinput = document.getElementById('sinput').value;
+            let output = document.getElementById('output');
+
+            let result = '';
+            let result2 = ''; //결과값을 담는 변수  
+            let i = 0;
+            numbers = sinput.split(',').map(Number);
+            for(let i =0; i <= numbers.length-1; i++){
+                  if(numbers[i] % 2 == 0){
+                        result = result + numbers[i] + ',';
+                  }
+                  if(numbers[i] % 2 == 1){
+                        result2 =  result2 + numbers[i] + ',';
+                  }
+            }
+            // 배열이름.slice(start array, end array)=> end array -1까지
+            // slice(start array, end array)=> 양수 : 왼 -> 오
+            // slice(start array, end array)=> 음수 : 오 -> 왼
+            result = result.slice(0,-1);
+            result2 = result2.slice(0,-1);
+            output.innerHTML = '짝수:'+ result +'/ 홀수:'+ result2;
+      }
+
+      
+      </script>
+</body>
+</html>

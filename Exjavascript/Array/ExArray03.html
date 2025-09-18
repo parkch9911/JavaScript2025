@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arr기초연습문제3</title>
+</head>
+<body>
+      <p id="output"></p>
+      <script>
+            let output = document.getElementById('output');
+            let names = ['Jason','Alice','Candy','Chris'];
+            let n = '';
+            for(let i = 0; i <= names.length-1; i++){
+                  n += names[i]+ ' ';
+            }
+            
+            output.innerHTML = `4번: ${n}`;
+
+      </script>
+</body>
+</html>

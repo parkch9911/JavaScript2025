@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arr기초연습문제6
+    </title>
+</head>
+<body>
+      <p id="output"></p>
+      <script>
+            
+            let output = document.getElementById('output');
+            let result = '';
+            //           0  1  2  3
+            let temp = [32,25,28,35];
+           for(let i=0; i<=temp.length-1; i++){
+                  result += temp[i] >= 30?'더움 ':'괜찮음 '
+                  console.log('누적',result);
+           }
+           output.innerHTML = result;
+
+      </script>
+</body>
+</html>

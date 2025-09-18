@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>심화연습문제11
+    </title>
+</head>
+<body>
+      <label>온도 배열 입력 (ex:15,22,30,35)</label><input type="text" id="sinput">
+      <button type="button" onclick="btnClick()">결과 확인</button>
+      <p id="output"></p>
+      <script>
+            let temp =[]
+            function btnClick(){
+            let sinput = document.getElementById('sinput').value;
+            let output = document.getElementById('output');
+
+            let result = '';
+            let i = 0;
+            temp = sinput.split(',').map(Number);
+            for(let i = 0; i <= temp.length-1; i++){
+                  if(temp[i] >= 30){
+                        result += temp[i]+`: 뜨거움`+', '
+                  }
+                  else if(temp[i] >= 20){
+                        result += temp[i]+`: 적당`+', '
+                  }
+                  else result += temp[i]+`: 시원`+', '
+      }
+      result = result.slice(0,-2);
+      output.innerHTML = result;
+}
+      
+      </script>
+</body>
+</html>

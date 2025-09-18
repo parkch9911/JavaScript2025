@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arr기초연습문제7
+    </title>
+</head>
+<body>
+      <p id="output"></p>
+      <script>
+            
+            let output = document.getElementById('output');
+            let result = '';
+            //          0  1  2  3
+            let arr = [10,20,30,40];
+           for(let i=0; i<=arr.length-1; i++){
+                  if(arr[i] >= 25){
+                        result += arr[i] + ' ';
+                  }
+           }
+           output.innerHTML = result;
+
+      </script>
+</body>
+</html>

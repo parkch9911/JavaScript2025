@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>심화연습문제8
+    </title>
+</head>
+<body>
+      <label>점수 : 배열 입력 (ex:90,80,70,20)</label><input type="text" id="scinput">
+      <button type="button" onclick="btnClick()">결과 확인</button>
+      <p id="output"></p>
+      <script>
+            //주어진 기본 배열
+            //     i     0   1   2   3   4    5
+            let scores =[]
+            function btnClick(){
+            //input에 입력받는 값에 Number()를 사용하면 입력값이 이미
+            // 90, 60, ... 이므로 문자이다. 고로 숫자로 변할 수 없다. NaN
+            let scinput = document.getElementById('scinput').value;
+            let output = document.getElementById('output');
+            // , 삭제하는법 :  배열이름.split(',')
+            // 배일 삭제 후에 문자화된다. '90','80' ...
+            // 배열이름 .map(Number) => 기존의 배열을 숫자화하여 다시 배열 만들어준다. 
+            // scores = [90,80,70]
+            // 자바스크립트는 문자가 아니라 문자열 (String) 데이터 형식이다.
+            // String 문자열 객체
+            scores = scinput.split(',').map(Number);
+            console.log(scores);
+            let result = ''; //결과값을 담는 변수 
+            let i = 0;
+            
+            //반복문
+            for(let i =0; i <= scores.length-1; i++){
+                  //점수 90이상 A, 80이상 B, 70이상 C, 그 이외 F
+                  if(scores[i] >= 90){
+                        result += scores[i] + '점 : A '+ ' / '
+                  }else if(scores[i] >= 80){
+                        result += scores[i] + '점 : B '+ ' / '
+                  }else if(scores[i] >= 70){
+                        result += scores[i] + '점 : C '+ ' / '
+                  }else{ result += scores[i] + '점 : F '+ ' / '}
+                  
+            }
+            output.innerHTML = result;
+      }
+
+      
+      </script>
+</body>
+</html>

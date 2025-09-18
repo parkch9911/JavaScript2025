@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>심화연습문제12
+    </title>
+</head>
+<body>
+      <label>가격 배열 (ex:10000,2000,5000)</label><input type="text" id="sinput">
+      <button type="button" onclick="btnClick()">결과 확인</button>
+      <p id="output"></p>
+      <script>
+            let cart =[]
+            function btnClick(){
+            let sinput = document.getElementById('sinput').value;
+            let output = document.getElementById('output');
+
+            let result = '';
+            let i = 0;
+            cart = sinput.split(',').map(Number);
+                  for(let i = 0; i <= cart.length-1; i++){
+                        //switch ~ case =1, case = '출석' ;
+                        //다른 관계연산자 사용 불가능 ex(>,<,<=,>=,! ...)
+                        //switch(true) ~case >= 10000
+                        //trim()은 공백이라는 문자를 제거하는 함수이다.
+                        switch(true){
+                              case cart[i] >= 10000:
+                                    result += cart[i] + ': 고가, ';
+                                    break;
+                              case cart[i] >= 5000:
+                                    result += cart[i] + ': 중저가, ';
+                                    break;
+                              default :
+                                    result += cart[i] + ': 저가, ';
+                                    break;
+                        }
+
+                        // if(cart[i] >= 10000){//만원이상
+                        //       result = result + cart[i] + ':고가'+', ';
+                        // }else if(cart[i] >= 5000){//오천원이상
+                        //       result = result + cart[i] + ':중저가'+', ';
+                        //                   //나머지 
+                        // }else result = result + cart[i] + ':저가'+', ';
+                  }
+                  result = result.slice(0,-2); // , 자르기
+                  output.innerHTML = result;
+            }
+      
+      </script>
+</body>
+</html>
