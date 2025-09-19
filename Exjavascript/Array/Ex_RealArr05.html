@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화평점사이트</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        <link rel="stylesheet" href="style/reset.css">
+        <link rel="stylesheet" href="style/index.css">
+        <style>
+            *{margin: 0;
+            padding: 0;}
+            body{
+                background-color: rgb(65, 65, 65);
+            }
+            h2{
+                padding: 10px 0;
+                text-align: center;
+                font-size: 40px;
+                background-color: rgb(45, 45, 45);
+                margin: 0 auto;
+                color: white;
+            }
+            .con1{
+                text-align: center;
+                margin: 50px auto;
+                background-color: rgba(222, 222, 222, 0.1);
+                width: 750px;
+                border-radius: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+            .imgbox{
+                margin-top: 80px;
+                margin-left: 70px;
+                width: 250px;
+                display: flex;
+                flex-direction: column;
+            }
+            img{
+                width: 200px;
+                border-radius: 10px;
+                margin: 30px auto;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+                display: inline;
+            }
+            img:hover{
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+            button{
+                border: none;
+                border-radius: 5px;
+                font-size: 25px;
+                padding: 20px 70px;
+                font-weight: 500;
+                margin: 30px 0;
+                cursor: pointer;
+            }
+            button:hover{
+                background-color: rgb(51, 51, 51);
+                color: white;
+            }
+           .con1 .tt{  
+                width: 250px;
+                
+            }
+            .con1 .tt ul{
+                list-style: none;
+                text-align: left;
+                
+
+
+            }
+            .con1 .tt ul li{
+                font-size: 22px;
+                width: 300px;
+
+            }
+
+        </style>
+</head>
+<body>
+    <h2>이달의 영화</h2>
+    <div class="con1">
+        <button type="button" onclick="btn()">평점 확인하기</button>
+        <div class="tt">
+            <ul>
+                <li id="output"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="top"><a href="#"></a></div>
+
+    <script>
+        function btn(){
+            let output = document.getElementById('output');
+            let movName = ['어벤져스','퍼펙트데이즈','인투더와일드','러브레터','남색대문','라라랜드'];
+            let movRat = [3.4, 4.2, 5.0, 4.5, 2.9, 4.3]
+            let i = 0;
+            let res = '<div class="imgbox"><img src="img/포스터1.jpg"><img src="img/포스터2.jpg"><img src="img/포스터3.jpg"><img src="img/포스터4.jpg"><img src="img/포스터5.jpg"><img src="img/포스터6.jpg"></div>'
+            //for문
+            for(i = 0; i <= movName.length-1; i++){
+                if(movRat[i]> 4){
+                    res += `제목 : ${movName[i]}<i class="fa-solid fa-face-laugh-squint"></i>
+                    평점 : ${movRat[i]}</br></br></br></br></br></br>`;
+                }
+                else res += `제목 : ${movName[i]} 평점 : ${movRat[i]}</br></br></br></br></br></br>`;
+            }
+            output.innerHTML = res;
+        }
+    </script>
+</body>
+</html>

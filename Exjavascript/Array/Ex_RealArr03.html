@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arr03</title>
+</head>
+<body>
+    <h2>상품 가격 비교</h2>
+    <button type="button" onclick="btn()">상품 출력</button>
+    <p id="output"></p>
+    <span id="blue"></span>
+    <span id="red"></span>
+
+<script>
+    function btn(){
+    let output =document.getElementById('output');
+    //배열
+    let pd=['노트북','마우스','모니터','키보드']
+    let prc=[120000,30000,80000,40000]
+    //초기
+    let i = 0;
+    let result = '<table border="1"><tr><th>상품</th><th>가격</th><th>등급</th></tr>';
+    //for문
+    for(let i = 0; i <= pd.length-1; i++){
+        if(prc[i] >= 50000){
+            result += `<tr><td>${pd[i]}</td><td>${prc[i]}</td><td><span>고가</span></td>`;
+        }else  result += `<tr><td>${pd[i]}</td><td>${prc[i]}</td><td><span>저가</span></td>`;
+    }
+    result += `</table>`
+    output.innerHTML = result;
+}
+
+
+</script>
+
+</body>
+</html>

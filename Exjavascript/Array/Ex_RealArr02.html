@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arr02</title>
+    <style>
+        *{margin: 0; padding: 0; 
+        }
+        .con1{
+            margin: 100px auto;
+            width: 400px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow:0 0 7px rgb(167, 200, 168);
+        }
+        .con1 .con2{
+            text-align: left;
+            padding-left: 80px;
+        }
+        .blue{
+            color: dodgerblue;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .blue:hover{
+            color: rgb(27, 121, 214);
+            font-weight: 500;
+        }
+        .red{
+            color: crimson;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .red:hover{
+            color: rgb(195, 20, 55);
+            font-weight: 500;    
+        }
+        p{
+            color: #333;
+        }
+        button{
+            border: none;
+            font-size: 20px;
+            margin-top: 40px;
+            padding: 10px;
+            border-radius: 10px;
+            color: rgb(14, 162, 64);
+            background-color: rgb(242, 242, 242);
+            cursor: pointer;
+            box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        a{
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="con1">
+        <button type="button" onclick="btn()">재고 확인</button>
+        <div class="con2">
+                <p id="output"></p>
+                <span class="blue"></span>
+                <span class="red"></span>
+        </div>
+    </div>
+    <!-- ------Script-------- -->
+
+    <script>
+        function btn(){
+        let output = document.getElementById('output');
+        //배열
+        let books = ['자바스크립트 입문', 'HTML & CSS', '파이썬 기초', '데이터 분석'];
+        let inven = [10,3,7,2];
+        //초기값
+        let result = '';
+        let i = 0;
+        //for문 시작
+        for(i = 0; i <= books.length-1; i++){
+            if(inven[i] > 5){
+                result += `${books[i]} : `+`${inven[i]}권 -`+`<span class = "blue">재고 충분</span>`+'</br>'
+            }else result += `${books[i]} : `+`${inven[i]}권 -`+`<span class = "red">재고 부족</span>`+'</br>'
+            console.log(result);
+        }
+        output.innerHTML = `<a href="#">${result}</a>`;
+    }
+    </script>
+
+
+</body>
+</html>

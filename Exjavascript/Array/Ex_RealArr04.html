@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arr04</title>
+</head>
+<body>
+    <h2>투표 결과</h2>
+    <button type="button" onclick="btn()">확인하기</button>
+    <p id="output"></p>
+    <span class="good"></span>
+
+    <script>
+        let result = '';
+        let names = ['철수','영희','민수','찬하','세희','미미','두부'];
+        let gets = [120,150,90,200,300,220,180];
+        let max = gets[0];
+
+    function btn(){
+        let output =document.getElementById('output');
+
+        for(let i = 0; i <= names.length-1; i++){  //최댓값 구하기
+            if(gets[i] > max){
+                max = gets[i];
+            }}console.log(max); // 최대값은 200으로 잘 출력됨
+
+
+        for(let i = 0; i <= names.length-1; i++){
+            if(max == gets[i]){
+                result += `${names[i]} : ${gets[i]}표 <span class ="good">-1등</span></br>`;
+            }else result += `${names[i]} : ${gets[i]}표 </br>`;
+        }
+        output.innerHTML = result;
+    }
+        
+
+   
+    
+
+    </script>
+</body>
+</html>
