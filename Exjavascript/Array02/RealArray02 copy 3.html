@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealArr02-5</title>
+</head>
+<body>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+    <script>
+        let output1 = document.getElementById('output1');
+        let output2 = document.getElementById('output2');
+        let output3 = document.getElementById('output3');
+        let res = '';
+        let sum = 0;
+        let avg = 0;
+        let names = ['홍길동','개나리','진달래'];
+        let subjects = ['국어','영어','수학'];
+        let scores = [
+                    [85,90,78], //홍길동
+                    [92,88,95], //개나리
+                    [76,85,83]  //진달래
+        ];
+        for(let i = 0; i < scores.length; i++){
+            sum = 0;
+            avg = 0;
+            for(j = 0; j < scores[i].length; j++){
+                sum += scores[i][j];
+                avg = sum / scores[i].length;
+            }
+             console.log(sum);
+             console.log(avg);
+            
+            output1.innerHTML = res +=`${names[i]} 총점 : ${sum}, 평균 : ${avg.toFixed(1)}</br>`;
+        }
+        let res1 =0;
+        let res2 = '';
+        let res3 = '';
+        let avg2 = 0;
+        
+        let total = 0;
+
+        for(let j = 0; j < scores.length; j++){
+            avg2 = 0;
+            total = 0;
+            for(let i = 0; i < scores[j].length; i++){ //각 다른 배열의 [0,n] 값을 더하고 나누기
+                //j = 0
+                //i = 0,1,2 만 합해주면댐
+                 total += scores[i][j]  // 열 합계
+                 avg2 = total / scores[i].length; //나누기 3
+                
+            }   
+            console.log(avg2);
+            res2 += `${subjects[j]} 평균 : ${avg2.toFixed(1)}</br>`;
+        }
+         output2.innerHTML = res2;
+
+        //최고 점수 학생
+        let max = 0; 
+        let result = 0;
+        let chkr = 0;
+        for(let i = 0; i < scores.length; i++){
+            for(let j = 0; j < scores[i].length; j++){
+                if(scores[i][j] > max){
+                    max = scores[i][j]; //scores[1][2]
+                    chkr = i; //맥스값이 1,2 니까 변수를 지정해서 1 = 개나리가 됨. 
+                                // 이후 names 배열의 1을 쓰면 개나리가 지정된다.
+                }
+                console.log(max);//95점  최대값을 가진 사람은 어케알지 ㅋㅋ 
+                console.log(i); //2 단순 for문 i최대값
+                }
+                console.log(chkr); //1 
+            }
+        output3.innerHTML = ` ${names[chkr]}(${max}점)`
+        
+
+    </script>
+</body>
+</html>

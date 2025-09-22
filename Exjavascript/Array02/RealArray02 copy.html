@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealArr02-3</title>
+</head>
+<body>
+    <p id="output">
+
+    </p>
+    <script>
+        let output = document.getElementById('output');
+        let arr = Array.from(Array(6),()=> new Array(7));
+        let rowTable = '';
+        let num = 1;
+        let result = `<table border="1">`
+        const weekdays = ['일','월','화','수','목','금','토'];
+        //시작일과 끝일 변수로 지정
+        let day = 1;
+        let lastday = 31;
+        //weekdays 출력
+                result += `<tr>`;
+                    //조건 지정 후 break; -> 여기서 루프를 빠져나옴.
+             for(let k = 0; k < weekdays.length; k++){
+                    result += `<th>${weekdays[k]}</th>`;
+                }
+                
+                
+                result += `</tr>`
+                    // 날짜 채우기
+                for(let i = 0; i < arr.length; i++){
+                    result += `<tr>`;
+                    for(let j = 0; j < arr[i].length; j++){
+                   
+                    //if문 출력값이 31 보다 크면 공란으로 만들기
+                        if(day <= lastday){
+                            arr[i][j] = day;
+                            result += `<td>${day}</td>`; 
+                            day++;
+                        }else{result += `<td></td>`;
+
+                        }
+                    }
+                 result += `</tr>`
+                 if(day > lastday) break;
+                }
+        output.innerHTML = result+'</table>'
+
+
+
+    </script>
+</body>
+</html>

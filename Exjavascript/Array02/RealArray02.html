@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealArr02-2</title>
+</head>
+    <style>
+        p{
+            font-size: 10px;
+        }
+    </style>
+<body>
+    <p id="output"></p>
+
+    <script>
+        let output = document.getElementById('output');
+        let res = '';
+        let reset = 0;
+        let sum = 0;
+        let avg = 0;
+        let scores = [
+            [85,90,80],
+            [70,60,75],
+            [95,100,90]
+        ]
+        for(i = 0; i < scores.length; i++){
+            sum = reset;
+            for(let j = 0; j < scores[i].length; j++){
+                sum += scores[i][j]; 
+                avg = sum / scores[i].length;     
+            }
+            res += `학생${[i+1]} : 합계 : ${sum} 평균 : ${avg.toFixed(2)}</br>`
+             console.log(`점수 합계 : ${sum} 평균 : ${avg}`)
+             console.log(avg);
+            
+        }
+        output.innerHTML = res;
+    </script>
+</body>
+</html>
