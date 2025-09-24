@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math예제4</title>
+</head>
+<body>
+    <button type="button" onclick="Btns()">비번 보기</button>
+    <p id="output"></p>
+    <script>
+        function Btns(){
+            let output = document.getElementById('output');
+            let pw = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            let idx = 0;
+            let res = '';
+            console.log(pw.length) //26
+            for(i = 0; i < 5; i++){
+                idx = Math.floor(Math.random()*pw.length);
+                res += pw[idx];
+                console.log(pw[idx]);
+            }
+            output.innerHTML = `생성 :${res}`
+        }
+    </script>
+</body>
+</html>

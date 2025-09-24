@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math예제5</title>
+</head>
+<body>
+    <button type="button" onclick="Btns()">확인하기</button>
+    <p id="output"></p>
+    <script>
+        function Btns(){
+            let words = ' Hello javaScript '
+            console.log(words.trim())
+            let aftertrim = ''; //트림 적용할 변수
+            aftertrim = words.trim()
+            output.innerHTML = `공백 제거 후 :</br>[${words.trim()}]  길이 : ${aftertrim.length}` //트림적용이랑 length를 같이쓸수잇나 모르겟다.
+        }
+    </script>
+</body>
+</html>

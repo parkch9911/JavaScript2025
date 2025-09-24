@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 반복 출력</title>
+    <style>
+        h2{
+            text-align: center;
+        }
+        .imgcon{
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .card{
+            text-align: center;
+        }
+        .imgcon .card img{
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px gray;
+        }
+    </style>
+</head>
+<body>
+    <h2>이미지 출력</h2>
+    <div class="imgcon" id="gall"></div>
+    <script>
+        let gall = document.getElementById('gall');
+        //5행 2열// 
+        let imgList = [
+            ["https://picsum.photos/id/1011/400/300",'산'],
+            ["https://picsum.photos/id/1025/400/300",'강아지'],
+            ["https://picsum.photos/id/1003/400/300",'건물'],
+            ["https://picsum.photos/id/1035/400/300",'해변'],
+            ["https://picsum.photos/id/1040/400/300",'숲']
+        ]
+
+        for(let i = 0; i < imgList.length; i++){ //행 5번 루프
+            for(j = 0; j < imgList[i].length; j++){ // 열 2번 루프  [0,1]- *행 횟수
+                if(j === 0){
+                    gall.innerHTML += `<div class="card">
+                    <img src="${imgList[i][j]}" alt="${imgList[i][1]}">
+                    <p>${imgList[i][1]}</p></div>`
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

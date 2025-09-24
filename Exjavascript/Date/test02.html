@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date객체 연습 문제</title>
+</head>
+<style>
+    button{
+        width: 100px;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <button type="button" onclick="showYear1()">1번 확인</button>
+    <p id="output1"></p>
+    <button type="button" onclick="showYear2()">2번 확인</button>
+     <p id="output2"></p>
+    <button type="button" onclick="showYear3()">3번 확인</button>
+    <p id="output3"></p>
+    <button type="button" onclick="showYear4()">4번 확인</button>
+    <p id="output4"></p>
+    <button type="button" onclick="showYear5()">5번 확인</button>
+    <p id="output5"></p>
+    <button type="button" onclick="showYear6()">6번 확인</button>
+    <p id="output6"></p>
+    <button type="button" onclick="showYear7()">7번 확인</button>
+    <p id="output7"></p>
+    <button type="button" onclick="showYear8()">8번 확인</button>
+    <p id="output81"></p>
+    <p id="output82"></p>
+    <button type="button" onclick="showYear9()">9번 확인</button>
+    <p id="output9"></p>
+    <button type="button" onclick="showYear10()">10번 확인</button>
+    <p id="output10"></p>
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+        let today = new Date();
+        let todayYear = today.getFullYear();
+        let TodayMonth = today.getMonth();
+        let TodayDate = today.getDate();
+        //함수 생성 
+        //함수호출 
+        //아래에 생성된 함수를 위에서 불러오는건 JavaScript의
+        //호이스팅 문제로 안될때가 많다. 
+    function showYear1(){
+   
+        let output1 = document.getElementById('output1')
+        let output2 = document.getElementById('output2')
+        let output3 = document.getElementById('output3')
+        let output4 = document.getElementById('output4')
+        let output5 = document.getElementById('output5')
+        
+        let today01 = new Date();
+        let year01 = today01.getFullYear();
+        output1.innerHTML = `올해는 ${year01}년 입니다.`
+    }
+    function showYear2(){
+        let today02 = new Date();
+        let day01 = today02.getDay();
+        let days = ['일','월','화','수','목','금','토']
+
+        for(i = 0; i < days.length; i++){
+            if( i === day01){
+                res = days[i];
+                break;
+            }
+        }
+        output2.innerHTML = `오늘은 ${res}요일 입니다.` // 2요일
+
+    }
+    function showYear3(){
+        let today03 = new Date();
+        let todayHour = today03.getHours();
+        let todayMin = today03.getMinutes();
+        let todaySec = today03.getSeconds();
+        output3.innerHTML = `"현재 시간: ${todayHour}:${todayMin}:${todaySec}"`
+    }
+    function showYear4(){
+        let today04 = new Date();
+        let birth = new Date(2025,10,3);
+        let cal = '';
+        let dayres = '';
+        today04.setHours(0,0,0,0) // 시간을 초기화
+        birth.setHours(0,0,0,0) // 시간을 초기화
+        console.log(birth);
+        console.log(birth - today04 + 86400000) //아니면  cal = (birth.getTime() - today04.getTime()으로 해도됨)
+        cal = (birth - today04) / 86400000
+        dayres += cal.toFixed(0);
+        output4.innerHTML = `"생일까지 ${dayres}일 남았습니다."`
+        // sethour(0,0,0,0)
+    }
+    function showYear5(){
+        let today05 = new Date();
+        today05.setHours(0,0,0,0) // 시간 초기화
+        // 하루 후 날짜 
+        let tomorrow = new Date(today05);
+        let nextweek = new Date(today05);
+        let tomorrowRes = '';
+        let nextweekRes = '';
+        // 오늘 날짜의 요일 : getDay()
+        // 오늘 날짜의 일 : getDate()
+        tomorrow.setDate(today05.getDate()+1);
+        console.log(tomorrow);
+        
+        // 일주일 후
+        nextweek.setDate(today05.getDate()+7);
+        console.log(nextweek);
+        output5.innerHTML = `하루 후 날짜 : ${tomorrow.getDate()}일</br> 일주일 후 날짜 : ${nextweek.getDate()}일`
+    }
+    //더 미래날짜 출력하기
+    function showYear6(){
+        let pastDay = new Date('2025/09/23');
+        let pastDayY = pastDay.getFullYear();
+        let pastDayM = pastDay.getMonth()+1;
+        let pastDayD = pastDay.getDate();
+        let futureDay = new Date('2025/12/25');
+        let futureDayY = futureDay.getFullYear();
+        let futureDayM = futureDay.getMonth()+1;
+        let futureDayD = futureDay.getDate();
+        let res = pastDay > futureDay? `${pastDayY}년 ${pastDayM}월 ${pastDayD}일`:
+                                       `${futureDayY}년 ${futureDayM}월 ${futureDayD}일`;
+        output6.innerHTML = `더 미래 날짜는 ${res} 입니다.`;
+    }
+    // 월의 마지막 날 구하기
+    function showYear7(){
+        let lastDatemon= new Date(todayYear,TodayMonth+1,0); // 9월 30일
+        let monres = lastDatemon.getMonth()+1; //9월 30일의 달 = 8 이니까 + 
+        let dayres = lastDatemon.getDate(); // 해당 월의 마지막 날  
+        output7.innerHTML = `${monres}월의 마지막 날은 ${dayres}일 입니다.`
+    }
+    // 특정 요일 찾기
+    function showYear8(){
+        // 이번달의 1일을 생성
+        let date = new Date(todayYear,TodayMonth,1);
+        // 요일 찾기 0일 1월 2화 3수 4목 5금 6토
+
+    ///--------------------------while문 버전------------------------------------------
+         while(date.getDay()!== 5){ // 5는 금요일
+             // 수정 => setDate
+             date.setDate(date.getDate()+1); // 5가 될 때 까지 1씩 증가
+         }
+         output81.innerHTML = (`이번달의 첫 금요일은 ${date.getDate()}일 입니다.`)
+    ///--------------------------------------------------------------------------------
+
+    //-----------------------------for문 버전-----------------------------------------
+        let firstDate = 0; // 금요일 넣을 변수
+        // 1부터 7까지 for문
+        for(let i = 1; i < 7; i++){
+            let date = new Date(todayYear,TodayMonth,i);
+            //if 
+            if(date.getDay() === 5){
+                firstDate = i;
+                break;
+            }
+        }
+        output82.innerHTML = (`이번달의 첫 금요일은 ${firstDate}일 입니다.`)
+    }
+    
+    
+
+    // 시간 차 계산
+    function showYear9(){
+        let nowtime = today.getTime();
+        console.log(nowtime); // 현재시간 
+        //오후6시 시간
+    }
+    // 요일에 따라 메시지 출력
+    function showYear10(){
+        let whatday = today.getDay();
+        console.log(whatday);
+        let res = whatday == 0 || whatday == 6? `주말입니다.`:`평일입니다.`
+        output10.innerHTML = res;
+    }
+
+    </script>
+</body>
+</html>

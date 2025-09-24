@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업다</title>
+</head>
+<body>
+    <style>
+        *{box-sizing: border-box;
+        margin: 0;
+        padding: 0;}
+        .cont{
+            text-align: center;
+            width: 400px;
+            border: 30px solid rgb(243, 65, 65);
+            border-bottom: 150px solid rgb(190, 40, 40);
+            border-radius: 10px;
+            background-color: #1c1c1c;
+            margin: 100px auto;
+            padding: 30px;
+            height: 400px;
+        }
+        p{
+            color: rgb(12, 255, 21);
+            font-weight: 600;
+            font-size: 20px;
+            margin-top: 20px;
+            
+        }
+        .cont .inpbtn{
+            height: 50px;
+            font-size: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .cont button{
+            background-color: transparent;
+            border:  2px solid rgb(12, 255, 21);
+            outline: none;
+            width: 70px;
+            height: 50px;
+            color: rgb(12, 255, 21);
+            font-size: 17px;
+            border-right: none;
+        }
+        .cont input{
+            width: 100px;
+            outline: none;
+            background-color: #1c1c1c;
+            border: 2px solid rgb(12, 255, 21);
+            height: 50px;
+            font-size: 17px;
+            padding-left: 8px;
+            color: rgb(12, 255, 21);
+        }
+         .cont input::placeholder{
+            color: rgb(12, 255, 21);
+         }
+        .try h4{
+            margin-top: 20px;
+            color: rgb(12, 255, 21);
+            display: inline-block;
+            font-weight: 500;
+        }
+    </style>
+    <div class="cont">
+        <div class="inpbtn">
+            <button type="button" onclick="Btns()">입력</button>
+            <input type="text" id="input" placeholder="GET NUM">
+        </div>
+        <p id="output"></p>
+        <div class="try">
+            <h4> 시도 횟수 : 
+                <h4 id="counting"> 0</h4>
+            </h4>
+        </div>
+    </div>
+    <script>
+        //난수 고정
+        let answer = Math.floor(Math.random()*100+1);
+        console.log(answer);
+        let count = 0;
+        //펑션 시작
+        function Btns(){
+            let output = document.getElementById('output');
+            let input = Number(document.getElementById('input').value);
+            
+            if(input === answer){
+                output.innerHTML = '정답입니다.';
+            }
+            else if(input > answer){
+                output.innerHTML = 'DOWN!';
+            }
+            else output.innerHTML = 'UP!'; 
+
+            count++;
+            counting.innerHTML =`${count}`;
+            }
+            
+            
+
+    
+    </script>
+</body>
+</html>

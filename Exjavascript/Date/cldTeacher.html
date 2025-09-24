@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date달력(선생님)</title>
+</head>
+<body>
+    <div id="container">
+        <div id="date-wrap">
+            <!-- 이전버튼 -->
+            <button id="prevBtn" onclick="prevBtn()">이전</button>
+            <!-- 2025년 9월 -->
+            <div id="main-date"></div>
+            <!-- 다음버튼 -->
+            <button id="nextBtn" onclick="nextBtn()">다음</button>
+        </div>
+        <table id="date-week">
+            <thead>
+                <th>SON</th>
+                <th>MON</th>
+                <th>TUE</th>
+                <th>WED</th>
+                <th>THU</th>
+                <th>FRI</th>
+                <th>SAT</th>
+            </thead>
+        </table>
+        <!-- 달력의 날짜 값 입력 -->
+         <div id="displayTable"></div>
+    </div>
+    <!-- 자바 스크립트 시작 -->
+    <script>
+        //document 변수 만들기
+        //전역 변수 / 전 지역에서 사용 할 수 있는 변수
+        let yearMonth = document.getElementById('main-date');
+        let displayTable = document.getElementById('displayTable');
+        let today = new Date(); // 오늘 날짜/시간 
+
+        //2차원 배열 지정 
+        let arr = Array.from(Array(6),()=>new Array(7));
+        
+        //달력의 배열에 값을 저장하는 함수
+        function callendar(){
+            // 1. 올해년도 출력하는 변수
+            let year = today.getFullYear();
+            // 2. 오늘 날짜의 월을 출력하는 변수
+            let month = today.getMonth(); //8 => 9월 
+            // 3. 이달의 마지막 날 구하기
+            //    일의 0을 지정하면 그 전달의 마지막 일자를 출력한다.
+            //    new Date(2025,5,0) => 2025-04-30
+            let lastDate = new Date(year,month+1,0); // 현재 달의 마지막 날짜를 불러냄.
+            //마지막 일자 출력하는 변수
+            let lastDay = lastDate.getDate();
+            // 4. 이 달의 시작일인 1의 요일을 구하기
+            //    getDay() : 일(0) ~ 토(6) 
+            //    1월(0) ~ 12월(11)
+            let startDate = new Date(year,month,1); 
+            // 당해년도 월의 시작일자 1
+            let startDay = startDate.getDate();
+            // 당해년도의 시작일자의 요일
+            let startWeek = startDate.getDay();
+
+            // 가로 시작
+            let row = 0;
+
+            // 배열 초기화 
+            // 배열 초기화 안하면 undefinded가 출력되기때문에 반드시 초기화한다.
+            for(i = 0; i < arr.length; i++){
+                for(j = 0; j < arr[i].length; j++){
+                    arr[i][j] = ''
+                }
+            }
+
+            // 핵심코드
+            // 달력배열에 실제 날짜를 채우는 핵심 로직
+            for(let i = startDay; i <= lastDay; i++){ //i는 시작일 1, i<= 마지막 날짜까지 루프 돌려
+                // 현재 달의 1일부터 마지막 일까지 반복 
+                // day가 0이고 startweek가 1   => arr[0][1]
+                arr[row][startWeek] = i;
+
+                // 7일이 되면 줄바꿈
+                // startweek가 7 < 6
+                if(startWeek < arr[row].length-1){
+                    //만약에 현재요일이 6(토요일)이 아니면 
+                    startWeek++;
+                }else{
+                    //현재 요일이 토요일이면 한 주가 끝난 것
+                    // 다음 행으로 이동
+                    row++;
+                    //starWeek를  0으로 리셋
+                    startWeek = 0;
+                }
+            }
+        }
+        // display() 호출 하여 화면 출력
+        // display();
+        // display출력하는 함수 작성
+        function display(){
+            //반드시 해야하는 작업
+            callendar(); // 달력 호출
+            let tb ="<table class='cal-table'>";
+                //가로줄
+            for(let i = 0; i < arr.length; i++){
+                tb += "<tr>";
+                //세로줄
+                for(let j = 0; j < arr[i].length; j++){
+                    tb += "<td>" + arr[i][j]+"</td>"
+                }
+                tb += "</tr>"
+            }
+            tb += "</table>"
+            // 맨 위 상단의 년 월 나오는 부분 입력
+            // yearMonth 
+            let yearmon = today.getFullYear() + '년' + (today.getMonth()+1)+'월'
+            yearMonth.innerHTML = yearmon;
+            //배열의 달력
+            displayTable.innerHTML = tb;
+        }
+        display(); //함수 호출
+
+        //이전 버튼 클릭 시 날짜의 월이 -1씩 줄어든다.
+        function prevBtn(){
+            today =  new Date(today.getFullYear(),today.getMonth()-1,1);
+            display();
+        }
+        //다음 버튼 클릭 시 날짜의 월이 +1씩 늘어난다.
+        function nextBtn(){
+            today = new Date(today.getFullYear(),today.getMonth()+1,1);
+            display();
+        }
+    </script>
+</body>
+</html>

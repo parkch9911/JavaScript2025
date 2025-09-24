@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>간단한 달력</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 40px;
+    }
+    .calendar {
+      width: 300px;
+      margin: auto;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      background-color: #eee;
+      padding: 10px 0;
+    }
+    .dates {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+    .day, .date {
+      padding: 10px;
+    }
+    .today {
+      background-color: orange;
+      border-radius: 50%;
+      color: white;
+    }
+    button {
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calendar">
+    <div class="header">
+      <button onclick="changeMonth(-1)">◀</button>
+      <h2 id="month-year"></h2>
+      <button onclick="changeMonth(1)">▶</button>
+    </div>
+    <div class="days">
+      <div class="day">일</div>
+      <div class="day">월</div>
+      <div class="day">화</div>
+      <div class="day">수</div>
+      <div class="day">목</div>
+      <div class="day">금</div>
+      <div class="day">토</div>
+    </div>
+    <div class="dates" id="calendar-dates">
+      <!-- 날짜가 들어가는 영역 -->
+    </div>
+  </div>
+
+  <script>
+    let today = new Date();
+    let currentYear = today.getFullYear();
+    let currentMonth = today.getMonth(); // 0~11
+
+    function renderCalendar(year, month) {
+      const monthYear = document.getElementById('month-year');
+      const calendarDates = document.getElementById('calendar-dates');
+
+      // 날짜 초기화
+      calendarDates.innerHTML = '';
+
+      const firstDay = new Date(year, month, 1);
+      const lastDate = new Date(year, month + 1, 0).getDate(); // 이번 달 마지막 날
+      const startDay = firstDay.getDay(); // 0~6
+
+      // 월/년 표시
+      monthYear.innerText = `${year}년 ${month + 1}월`;
+
+      // 빈 칸 채우기 (전 달의 날짜)
+      for (let i = 0; i < startDay; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.classList.add('date');
+        calendarDates.appendChild(emptyCell);
+      }
+
+      // 날짜 채우기
+      for (let date = 1; date <= lastDate; date++) {
+        const dateCell = document.createElement('div');
+        dateCell.classList.add('date');
+        if (
+          date === today.getDate() &&
+          year === today.getFullYear() &&
+          month === today.getMonth()
+        ) {
+          dateCell.classList.add('today');
+        }
+        dateCell.textContent = date;
+        calendarDates.appendChild(dateCell);
+      }
+    }
+
+    function changeMonth(delta) {
+      currentMonth += delta;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      } else if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      renderCalendar(currentYear, currentMonth);
+    }
+
+    // 최초 렌더링
+    renderCalendar(currentYear, currentMonth);
+  </script>
+
+</body>
+</html>

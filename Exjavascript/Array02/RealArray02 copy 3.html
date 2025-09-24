@@ -25,7 +25,7 @@
         ];
         for(let i = 0; i < scores.length; i++){
             sum = 0;
-            avg = 0;
+            avg = 0;//리셋 초기화값
             for(j = 0; j < scores[i].length; j++){
                 sum += scores[i][j];
                 avg = sum / scores[i].length;
@@ -42,7 +42,7 @@
         
         let total = 0;
 
-        for(let j = 0; j < scores.length; j++){
+        for(let j = 0; j < scores.length; j++){ // 행이 아니고 열이라 ij 위치 바꿔주기 
             avg2 = 0;
             total = 0;
             for(let i = 0; i < scores[j].length; i++){ //각 다른 배열의 [0,n] 값을 더하고 나누기

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test02</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button type="button" onclick="btn()">확인</button>
+    <p id="output"></p>
+
+    <script>
+    function btn(){
+        let output = document.getElementById('output');
+        let input =Number(document.getElementById('input').value);
+
+        let res = '';
+        let num = '';
+        for(i = 1; i <= input; i++){      
+	        if( input % i == 0) { 
+                num += `${i}, `;
+            }
+        }
+    console.log(num);
+    } 
+    </script>
+
+</body>
+</html>

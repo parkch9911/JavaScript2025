@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date달력</title>
+</head>
+<body>
+    <div class="topcon">
+        <!-- <button type="button" onclick="before()"></button> -->
+        <h2 id="outputH"></h2>
+        <!-- <button type="button" onclick="after()"></button> -->
+        <p id="output"></p>
+    </div>
+
+    <script>
+        //올해 년도 구하기
+        let Today = new Date();
+        let TodayDATE = new Date(Today.getFullYear(),Today.getMonth()+1,0)
+        //년 / 월은 인덱스방번호처럼 0부터 시작이니까 1 더하고 , 0을 박으면 첫 날이됨
+        //Tue Sep 30 2025 00:00:00 GMT+0900 (한국 표준시)
+        //그럼 여기서 일자에 -1을 박으면 전 달 마지막 날이 구해짐.
+        console.log(TodayDATE)
+        let TodayYear = Today.getFullYear();
+        //오늘 날짜의 월 구하기
+        let TodayMonth = Today.getMonth();
+        console.log(TodayYear) //2025
+        console.log(TodayMonth)//8이니까  => 9월 
+        Today.get
+
+        //이달의 마지막 날짜의 일자 구하기
+        //다음달의 첫번째 일자 -1 => 전 달의 마지막 날
+        //다음 달의 첫번째 일자는 어떻게 오늘날짜의 월을 구하고 +1 => 다음달.
+        
+        let TodayLastDate = Today.getDate();
+        console.log(TodayLastDate)
+
+        
+    </script>
+</body>
+</html>

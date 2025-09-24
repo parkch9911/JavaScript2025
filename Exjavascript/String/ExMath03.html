@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math예제3</title>
+</head>
+<body>
+    <button type="button" onclick="Btns()">길이 비교하기</button>
+    <p id="output"></p>
+    <script>
+        function Btns(){
+            let output = document.getElementById('output');
+            let sagwa = 'apple'
+            let subak = 'watermelon'
+            sagwa.length > subak.length? output.innerHTML = `더 긴 단어 : apple (길이 : ${sagwa.length})`:  output.innerHTML = `더 긴 단어 : watermelon (길이 : ${subak.length})`
+        }
+    </script>
+</body>
+</html>

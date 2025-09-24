@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test04</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button type="button" onclick="btn()">확인</button>
+    <p id="output"></p>
+
+    <script>
+        function btn(){
+        let output = document.getElementById('output');
+        let input =Number(document.getElementById('input').value);
+        let count = 0;
+        for(let i = 1; i <= input; i++){
+	        if(i % 7 == 0){
+                count++;
+                console.log(count);
+            }
+        }
+        output.innerHTML = count;
+    }
+
+
+    </script>
+
+</body>
+</html>

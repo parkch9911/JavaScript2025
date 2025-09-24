@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math예제2</title>
+</head>
+<body>
+    <button type="button" onclick="Btns()">글자 뽑기</button>
+    <p id="output"></p>
+    <script>
+        function Btns(){
+            let output = document.getElementById('output');
+            let words = 'JavaScript'
+            index = Math.floor(Math.random()*words.length);
+            output.innerHTML = `뽑힌 글자 : ${words[index]}`;
+        }
+    </script>
+</body>
+</html>

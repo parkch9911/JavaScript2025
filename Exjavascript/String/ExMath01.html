@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math예제</title>
+</head>
+<body>
+    <button type="button" onclick="Btns()">이름 뽑기</button>
+    <p id="output"></p>
+    <script>
+        function Btns(){
+            let output = document.getElementById('output');
+            let names = ['철수','영희','민수','지영','수현'];
+            let res = '';
+            // 0~1 난수 생성
+            idx = Math.floor(Math.random()*names.length);
+            output.innerHTML = names[idx];
+        }
+
+
+        
+
+
+
+    </script>
+</body>
+</html>
