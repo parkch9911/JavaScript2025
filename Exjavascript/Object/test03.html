@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obj3</title>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        // Object 배열 만들기
+        //인덱스 0번과 1번의 아이가 다르다는걸 구분을 해줘야함.
+        // id:1 은 배열안의 각각의 Object를 구별하는 키이다.
+        // DB(DataBase)형식으로 작성 중
+        // DB란 데이터 저장소 
+        let cart = [
+            {id:1,name:"노트북",price:1000,quan:1}, //index 0번
+            {id:2,name:"마우스",price:50,quan:2}, //index 1번
+            {id:3,name:"키보드",price:150,quan:22}, //index 1번
+        ]
+        let total = 0;
+        //for문 이용하여 total값 구하기
+        for(let i = 0; i < cart.length; i++){
+        total += cart[i].price*cart[i].quan
+        }
+        console.log(`장바구니 총 금액 : ${total} 메소`);    
+        //---------------------------------------------------
+        let output = document.getElementById('output');
+
+        let student = [
+            {id:1, name:'홍길동', kor:90, eng:80, math:85},
+            {id:2, name:'성춘향', kor:95, eng:88, math:92},
+            {id:3, name:'이몽룡', kor:70, eng:75, math:80}
+        ]
+        let get = '';
+        for(let i = 0; i < student.length; i++){
+            get += student[i].name+'의 평균 점수 : '+((student[i].kor+student[i].eng+student[i].math)/3).toFixed(2)+'</br>'
+        }
+        output.innerHTML = get;
+
+
+
+
+    </script>
+    
+</body>
+</html>
