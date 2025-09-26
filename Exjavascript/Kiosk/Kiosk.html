@@ -9,22 +9,22 @@
 <body>
 
     <div class="wrap">
-        <div class="order_menu">
-            <div class="toptext">
-                <h2>원하시는 음료를 선택해 주세요</h2>
-                <p>Please choose the drink you want.</p>
+            <div class="order_menu">
+                <div class="toptext">
+                    <h2>원하시는 메뉴를 선택해 주세요</h2>
+                    <p>Please choose the drink you want.</p>
+                </div>
+                <div class="section1">
+                    <h2>COFFEE</h2>
+                    <div id="menubox">상품자리</div>
+                </div>
             </div>
-            <div class="section1">
-                <h2>MENU</h2>
-                <div id="menubox">상품자리</div>
-            </div>
-        </div>
         <div class="rightside">
             <div class="order_list">
                 <div class="section2">
                     <div class="section2-1">
                         <h2>주문내역</h2>
-                        <div class="orderbox">장바구니자리</div>
+                        <div class="orderbox"></div>
                     </div>
                 </div>
             </div>
@@ -36,37 +36,54 @@
             </div>   
         </div>
     </div>
+    <!-- --------------------------------------스크립트 시작------------------------------------------------->
     <script>
+        //------------------------------------------기본 배열 세팅--------------------------------------------
         let menus = [
-            {id: 0, name: '아메리카노', type: 'HOT', price: 1000,quantity:1},
-            {id: 1, name: '아메리카노', type: 'ICE', price: 1300,quantity:1},
-            {id: 2, name: '바닐라라떼', type: 'HOT', price: 2500,quantity:1},
-            {id: 3, name: '바닐라라떼', type: 'ICE', price: 2800,quantity:1},
-            {id: 4, name: '연유라떼', type: 'HOT', price: 2500,quantity:1},
-            {id: 5, name: '연유라떼', type: 'ICE', price: 2800,quantity:1},
-            {id: 6, name: '카라멜마끼아또', type: 'HOT', price: 2800,quantity:1},
-            {id: 7, name: '카라멜마끼아또', type: 'ICE', price: 3000,quantity:1},
-            {id: 8, name: '카페모카', type: 'HOT', price: 3000,quantity:1},
-            {id: 9, name: '카페모카', type: 'ICE', price: 3300,quantity:1},
-            {id: 10, name: '딥카페라테', type: 'HOT', price: 3400,quantity:1},
-            {id: 11, name: '딥카페라테', type: 'ICE', price: 3700,quantity:1},
+            {id: 0, name: '아메리카노', type: 'HOT', price: 1000,quantity:0},
+            {id: 1, name: '아메리카노', type: 'ICE', price: 1300,quantity:0},
+            {id: 2, name: '바닐라라떼', type: 'HOT', price: 2500,quantity:0},
+            {id: 3, name: '바닐라라떼', type: 'ICE', price: 2800,quantity:0},
+            {id: 4, name: '연유라떼', type: 'HOT', price: 2500,quantity:0},
+            {id: 5, name: '연유라떼', type: 'ICE', price: 2800,quantity:0},
+            {id: 6, name: '카라멜마끼아또', type: 'HOT', price: 2800,quantity:0},
+            {id: 7, name: '카라멜마끼아또', type: 'ICE', price: 3000,quantity:0},
+            {id: 8, name: '카페모카', type: 'HOT', price: 3000,quantity:0},
+            {id: 9, name: '카페모카', type: 'ICE', price: 3300,quantity:0},
+            {id: 10, name: '딥카페라테', type: 'HOT', price: 3400,quantity:0},
+            {id: 11, name: '딥카페라테', type: 'ICE', price: 3700,quantity:0},
         ];
-
-        function renderCart(){
+//----------------------------------------왼쪽 메뉴들 보여주기 -----------------------------------------
+        function renderMenu(){
              let menubox = document.getElementById('menubox');
              let res = `<ul class ="coffee-line">`;
-
         for(let i = 0; i < menus.length; i++){
-
-            res +=
-                `<li>
+            res += 
+            menus[i].type == 'HOT'? 
+                `<li onclick ="increase(${i})"> 
+                    <div class="coffee">
+                    <img src="img/hot.png" alt="icecoffee">
+                        <div class="coffee-txt">
+                            <dl>
+                                <dt>${menus[i].name}</dt>
+                                <dd class ="coffee-type">${menus[i].type}</dd>
+                                <dd class="coffee-price">
+                                    <span>${(menus[i].price).toLocaleString('ko-kr')}원</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </li>`
+                :
+                 `<li onclick ="increase(${i})"> 
                     <div class="coffee">
                     <img src="img/ice.png" alt="icecoffee">
                         <div class="coffee-txt">
                             <dl>
                                 <dt>${menus[i].name}</dt>
-                                <dd class="coffee=price">
-                                    <span>${(menus[i].price).toLocaleString('ko-kr')}</span>
+                                <dd class ="coffee-type">${menus[i].type}</dd>
+                                <dd class="coffee-price">
+                                    <span>${(menus[i].price).toLocaleString('ko-kr')}원</span>
                                 </dd>
                             </dl>
                         </div>
@@ -76,7 +93,66 @@
          res += `</ul>`
         menubox.innerHTML = res;
         }
-        renderCart();
+        renderMenu();
+        //-------------------------------------장바구니 ----------------------------------------------
+        function gotoCart(){
+            let orderbox = document.querySelector('.orderbox');
+            let pay = document.querySelector('.pay'); //문제X
+            let total = 0; //문제X
+            let cartRes = '';
+
+          for(let i = 0; i < menus.length; i++){
+            if(menus[i].quantity > 0){
+            cartRes +=
+            `<ul>
+                <li><span class = "menuname">${menus[i].name}</span></li>
+                <li><span class = "menutype">${menus[i].type}</span></li>
+                <li><span class = "menuquan">${menus[i].quantity}개</span></li>
+                <li><span class = "menuprice">${(menus[i].quantity*menus[i].price).toLocaleString('ko-kr')}원</span></li>
+                <li class ="menubtns">
+                    <button class="plus" onclick = "increase(${i})">+</button>
+                    <button class="minus" onclick = "decrease(${i})">-</button>
+                    <button class="remove" onclick = "remove(${i})">삭제</button>
+                </li>
+            </ul>`
+            }
+            total += menus[i].quantity*menus[i].price; //문제X
+        }
+        orderbox.innerHTML =  cartRes ;//문제X
+        
+        pay.innerHTML = `${total.toLocaleString(`ko-kr`)}원`; //문제X
+        }
+         gotoCart();
+        //--------------------------------------------버튼 기능 ------------------------------------------
+        //plus버튼 기능
+        function increase(indexNum){
+            menus[indexNum].quantity++;
+        gotoCart();
+        }
+        //minus버튼 기능
+        function decrease(indexNum){
+            menus[indexNum].quantity--;
+            if(menus[indexNum].quantity == 0){
+                menus[indexNum].quantity=0;
+            }
+            gotoCart();
+        }
+        // remove버튼 기능
+        // orderbox 안에서의 인덱스만 삭제되어야함. 
+            function remove(indexNum){
+            menus[indexNum].quantity=0;
+            gotoCart();
+        }
+        //----------------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------------------
+
+        // 현재 문제점
+        // 1.  새로고침 시에 직접 배열에서 수를 지정해주지않으면 주문내역에 안뜸
+               // onclick 조건을 걸어도 안먹힘
+
+        // 2. 맨위 배열인 menus 에서 splice가 아닌 orderbox 안에서만 배열을 삭제하고싶은데
+        //    작성법이나 위치를 모르겠음. orderbox.~  이런게 안됨.
+
     </script>
 </body>
 </html>
