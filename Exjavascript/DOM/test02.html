@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom 기초문제</title>
+</head>
+<body>
+
+    <!-- 태그작성 : 1 ~ 4번 문제 -->
+
+    <p id="text">안녕하세요</p><hr>
+     
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div><hr>
+
+    <span class="spans">첫 번째 문장</span><br>
+    <span class="spans">두 번째 문장</span><hr>
+   
+    <ul>
+        <li class="fru">사과</li>
+        <li class="fru">바나나</li>
+        <li class="fru">체리</li><hr>
+    </ul>
+
+   
+     <!------------------------------- script --------------------------->
+     <!------------------------------- script --------------------------->
+
+
+    <script>
+        
+        // 1번 문제 ----------------------------------------------------
+        
+
+        let p_change = document.getElementById('text');
+        p_change.textContent = 'DOM 실습 중급'
+        console.log(p_change);
+
+
+        // 2번 문제 ----------------------------------------------------
+
+
+        let boxBack = document.getElementsByClassName('box');
+                   //box를 3번 돌려야함 for문 필요
+                   //배열처럼 보이지만 [], 사실 배열이 아니다.
+                   // querySelector() => 배열이 아님
+                   // querySelectorAll() => 배열
+                   //배열 생성 Array.from()
+                   //box를 배열로 생성
+                   //forEach(value, index, array)
+        Array.from(boxBack).forEach((item, index) =>{
+            item.style.backgroundColor = "yellow";
+        })
+
+
+        // 3번 문제 ----------------------------------------------------
+
+
+        let spanChange = document.querySelectorAll('.spans');
+        //elementbyclassname 은 무조건 배열로 생성해서 쓰게되어있음.
+         Array.from(spanChange).forEach((item, index) => {
+         item.style.color = "blue"
+         })
+
+
+        // 4번 문제 -----------------------------------------------------
+
+
+        let GrapeMake = document.querySelectorAll('.fru')[0];
+        GrapeMake.textContent = '포도';
+
+        //선택자 이름이 존재하지 않을 경우 부모 자식의 태그명을 
+        //정확하게 입력해준다.
+        
+        let firstLi = document.querySelector('ul li')
+        firstLi.textContent = 'podo'
+
+
+
+ 
+    </script>
+</body>
+</html>

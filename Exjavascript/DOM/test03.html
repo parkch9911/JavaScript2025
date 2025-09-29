@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5~8</title>
+</head>
+<body>
+    5번
+    <ul>
+        <li class="allFru">사과</li>
+        <li class="allFru">바나나</li>
+        <li class="allFru">체리</li>
+    </ul><hr>
+    
+    6번
+    <ul id="list"></ul>
+    <hr>
+
+    7번
+    <ul>
+        <li id="rmv">삭제될 항목</li>
+        <li>남길 항목</li><hr>
+    </ul>
+    8번
+    <div id="content"></div><hr>
+
+    <script>
+        // 5번 문제 ----------------------------------------------------
+
+
+        let fruMake = document.querySelectorAll('.allFru');
+        for(let i = 0; i < fruMake.length; i++){
+        fruMake[i].textContent = '과일';
+        }
+
+
+        // 6번 문제 -----------------------------------------------------
+
+        
+        let liMake = document.createElement('li');
+        liMake.textContent = '새 항목'
+        document.getElementById('list').appendChild(liMake);
+        
+
+        // 7번 문제 -----------------------------------------------------
+
+
+        let liremove = document.querySelector('#rmv').remove();
+
+
+        // 8번 문제 ------------------------------------------------------
+
+
+        let pMake = document.createElement('p');
+        pMake.textContent = 'DOM 연습'
+        document.getElementById('content').appendChild(pMake)
+
+
+        
+    </script>
+</body>
+</html>

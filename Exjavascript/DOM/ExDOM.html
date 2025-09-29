@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX.DOM</title>
+</head>
+<body>
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+    }
+    /* 컨테이너 */
+    .todo-container{
+            padding: 10px;
+            margin: 100px auto;
+            width: 350px;
+            text-align: center;
+            background-color: rgb(238, 238, 238);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            position: relative;
+    }
+    /* h1 */
+    h1{
+        margin: 20px auto;
+        font-size: 25px;
+        color: #333;
+    }
+    /* 인풋 칸 */
+    .todo-container #task{
+        width: 150px;
+        padding: 10px;
+        padding-left: 15px;
+        border-radius: 5px;
+        border: none;
+        background-color: rgb(255, 255, 255);
+        margin-bottom: 30px;
+        float: left;
+        margin-left: 60px;
+        color: #333;
+    }
+    .todo-container #task:focus{
+        outline: none;
+        background-color: rgb(215, 238, 248);
+    }
+    .todo-container #task:focus::placeholder{
+        color: dodgerblue;
+    }
+    /* 인풋 온클릭 버튼 */
+    .todo-container .input-area > button{
+        width: 50px;
+        height: 35px;
+        border-radius: 5px;
+        border: none;
+        background-color: dodgerblue;
+        font-weight: bold;
+        color: white;
+        outline: none;
+        margin-right: 50px;
+        margin-bottom: 20px;
+        }
+    .todo-container .input-area > button:hover{
+        background-color: rgb(40, 123, 206);
+    }
+    /* 인풋 입력 시 추가되는 항목들 */
+    .tasks{
+    margin: 20px auto;
+    }
+    li{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 20px 10px;
+    }
+    li button{
+        width: 25px;
+        border: none;
+        font-weight: bold;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+        background-color: rgb(220, 58, 58);
+        color: white;
+        border-radius: 5px;
+    }
+    li button:hover{
+        background-color: rgb(189, 31, 31);
+    }
+    </style>
+
+    <!-- ------------------------ HTML-------------------------- -->
+    <div class="todo-container">
+        <h1>할 일 목록</h1>
+        <div class="input-area">
+            <input id="task" type="text" placeholder="할 일 입력" onkeyup="if(window.event.keyCode==13)addTask()"/>
+            <button onclick="addTask()">추가</button>
+        </div>
+        <ul id="tasks">
+        </ul>
+    </div>
+    <!---------------------------- script-------------------------- -->
+    <script>
+        function addTask(){
+            let input = document.getElementById('task');
+            let liMake = document.createElement('li'); //li 생성
+            let btnMake = document.createElement('button'); // 버튼 생성
+            btnMake.textContent = 'X' // 버튼에 X 텍스트 넣기
+            liMake.textContent = document.getElementById('task').value; //인풋값을 li로만들기
+            tasks.appendChild(liMake).appendChild(btnMake); //li안에 버튼 넣기
+            btnMake.setAttribute('id','dele'); //만든 버튼 아이디 주기
+
+            
+            // let delebtn = document.querySelector('#dele'); //변수에 버튼아이디
+            // delebtn.addEventListener('click',() => { //온클릭못넣으니까 이벤트리스너
+            //    liMake.remove(); // 다 지워짐 어쩌징 for문을 돌려야 어떤게 지워지는지 알 수 있음.
+            // })
+
+            btnMake.onclick=function(){
+                btnMake.parentNode.remove();
+            }
+
+
+        }
+    </script>
+</body>
+</html>

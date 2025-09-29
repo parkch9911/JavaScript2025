@@ -39,7 +39,7 @@
     <!-- --------------------------------------스크립트 시작------------------------------------------------->
     <script>
         //------------------------------------------기본 배열 세팅--------------------------------------------
-        let menus = [
+        let menus = [ //배열을 전역변수로 지정
             {id: 0, name: '아메리카노', type: 'HOT', price: 1000,quantity:0},
             {id: 1, name: '아메리카노', type: 'ICE', price: 1300,quantity:0},
             {id: 2, name: '바닐라라떼', type: 'HOT', price: 2500,quantity:0},
@@ -54,7 +54,7 @@
             {id: 11, name: '딥카페라테', type: 'ICE', price: 3700,quantity:0},
         ];
 //----------------------------------------왼쪽 메뉴들 보여주기 -----------------------------------------
-        function renderMenu(){
+        function renderMenu(){ //이 메뉴박스에 변화가 있을 때 만 함수를줘도됨 실상 내가 만든거에선 불필요함.
              let menubox = document.getElementById('menubox');
              let res = `<ul class ="coffee-line">`;
         for(let i = 0; i < menus.length; i++){
@@ -100,7 +100,7 @@
             let pay = document.querySelector('.pay'); //문제X
             let total = 0; //문제X
             let cartRes = '';
-
+            
           for(let i = 0; i < menus.length; i++){
             if(menus[i].quantity > 0){
             cartRes +=

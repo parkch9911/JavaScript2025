@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>토글 알아보기</title>
+</head>
+    <style>
+        p{
+            font-size: 30px;
+        }
+        .high{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+<body>
+    <p id="text">클릭하면 강조</p>
+    <script>
+        //toggle란  하나의 태그가 2가지 역할을 함
+        // 클릭 보임 재클릭 사라짐
+        let text = document.getElementById('text');
+        text.onclick = function(){
+            this.classList.toggle('high') // high란 클래스명이다.
+        }
+
+    </script>
+</body>
+</html>

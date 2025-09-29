@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="p2">one</p>
+    <p class="p2">two</p>
+
+    <script>
+        // p10[object HTMLCollection]
+        // forEach문은 HTMLCollection을 가지고 있지 않음
+        // let p10 = document.getElementsByTagName('p');
+        // let arr10 = Array.from(p10);
+        // console.log('p10'+p10)
+        // arr10.forEach(item => {
+        //     item.style.color = "red";
+        // });
+        //for문은 index로 루프 돌림 허용
+        //for(let i = 0; i < p10.length; i++){
+        //    p10[i].style.color = "blue";
+        //}
+        // forEach 적용 안됨
+
+        // let p11 = document.getElementsByClassName('p2');
+        // console.log('p11'+p11)
+        // //for문 index로 접근하고, length 속성을 가지기때문에
+        // //접근 가능 
+        // for(let i = 0; i < p11.length; i++){
+        //     p11[i].style.color = "green";
+        // }
+
+        //querySelectorAll() => p12[object NodeList]
+        //javascript 버전 ES6 이후부터 forEach()허용 함
+        let p12 = document.querySelectorAll('.p2')
+        console.log('p12'+p12);
+        // p12.forEach((item,i)=>{
+        //     item.style.color = "violet"
+        // })
+        for(let i = 0; i < p12.length; i++){
+            p12[i].style.color  = "orange"
+        }
+    </script>
+</body>
+</html>
