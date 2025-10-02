@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <style>
+        img{
+            position: fixed;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수토글해보기</title>
+</head>
+<body>
+    <button id="toogleBtn">이미지토글</button>
+    <img id="myImg" src="img/pic-2.jpg" style="display: block;"/>
+
+    <hr>
+    <p id="text">색상이 바뀝니다.</p>
+    <button id="colorBtn">색상 변경</button>
+
+
+    <hr>
+    <input id="num1" type="number">+
+    <input id="num2" type="number">
+    <button id="sumBtn">계산하기</button>
+    <div id="result"></div>
+
+    <hr>
+    <input id="inputBox" type="text" placeholder="입력해보세요">
+
+    <script>
+        let Btn = document.getElementById('toogleBtn')
+        let pic = document.getElementById('myImg')
+        Btn.addEventListener('click',()=>{ // 클릭 시
+            if(pic.style.display === "block" ){  //display블럭일때 사라지게, 
+                pic.style.display = 'none'
+            }else{
+                pic.style.display = 'block'
+            }}
+        )
+        let colors=['red','green','blue']
+        let index = 0;
+        let Btn2 = document.getElementById('colorBtn')
+        let changeColor = document.getElementById('text')
+          Btn2.addEventListener('click',()=>{
+            switch(index){
+                case 0:
+                    changeColor.style.color = colors[0]
+                    break;
+                case 1:
+                    changeColor.style.color = colors[1]
+                    break;
+                case 2:
+                    changeColor.style.color = colors[2]
+                    break;
+            }
+            index++;
+            if(index === 3){
+                index = 0;
+            }
+            })
+
+        //---------------------------------------------------------
+
+        let sumBtn = document.getElementById('sumBtn')
+        let result = document.getElementById('result')
+        sumBtn.addEventListener('click',()=>{ 
+        let input1 = Number(document.getElementById('num1').value);
+        let input2 = Number(document.getElementById('num2').value);
+                                               //클릭시
+            result.textContent = input1 + input2; //textContent 텍스트노드에 연결
+            console.log(result)
+        }) 
+   
+        //-------------------------------------------------------
+        
+        let input = document.getElementById('inputBox')
+        let res2 = '';
+        input.addEventListener('keyup',() => { //뭐 입력하면
+            
+            res2 = input.value;
+            console.log(res2);
+        })
+
+        //--------------------------------------------------------
+
+        
+        
+
+    </script>
+</body>
+</html>

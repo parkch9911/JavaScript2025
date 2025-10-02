@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>펑션연습문제</title>
+</head>
+<body>
+    3번
+    <button id="btn">클릭</button>
+    <hr>
+    6번
+    <button type="button" id="times">시간 확인하기</button>
+    <script>
+        //2번------------------------------------------
+
+        let getDiscountPrice = (price,rate) => {
+            let result = price- price*rate;
+            return result;
+        }
+        console.log(`2번 : 최종 할인 가격 :${getDiscountPrice(10000,0.1)}원`);
+
+        //3번------------------------------------------
+        let clickbtn = document.querySelector('#btn');
+        let count = 0;
+        clickbtn.addEventListener('click',() => {
+            count++;
+            console.log(`3번 : 클릭횟수 : ${count}`);
+        }) // 왜 안될까
+            
+        
+        //4번------------------------------------------- 못풀었음
+        let getTotal = (cart) => {
+            let cartsum = 0;
+            for(let i = 0; i < cart.length; i++){
+                cartsum += cart[i];
+            }
+            return cartsum;
+        }
+        console.log(getTotal([1000,2000,3000]))
+        // 왜 이것도안될까
+
+        //5번------------------------------------------- 작동됨
+        let vaildatePassword = (passwords) => passwords.length >= 8
+        
+        console.log(vaildatePassword('1234'))
+        console.log(vaildatePassword('12345678'))
+    
+        //6번-------------------------------------------
+
+        let btn2 = document.getElementById('times')
+        btn2.addEventListener('click',()=>{
+            let now = new Date()
+            console.log('현재시간:'+now.toLocaleString())
+        })
+    </script>
+</body>
+</html>

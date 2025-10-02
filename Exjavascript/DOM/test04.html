@@ -12,6 +12,7 @@
     </style>
 <body>
     <h1>
+        <em class="nm km km"></em>
         <span>난 span 태그</span>
     </h1>
     <script>
@@ -22,8 +23,9 @@
 
         p01.className = 'blue'; // <p class ="blue">의미
         p01.classList.add('active'); //클래스명이 "blue" 에서 "blue active" 로 변경
-        p01.classList.remove('blue'); //클래스명이 "blue active"에서 "active" 로 변경
-        
+        //p01.classList.remove('blue'); //클래스명이 "blue active"에서 "active" 로 변경
+        console.log(p01)
+    
         p01.innerHTML = '난 js로 추가된 p태그야' 
         titleChange.appendChild(p01);
 

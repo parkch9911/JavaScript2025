@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <img id="img" src="img/girl.png">
+    </div>    
+
+    <script>
+        let imgChange = document.getElementById('img')
+        imgChange.addEventListener('mouseover',()=>{
+            imgChange.setAttribute("src","img/boy.png");
+        })
+        imgChange.addEventListener('mouseout',()=>{
+            imgChange.setAttribute("src","img/girl.png");
+        })
+    </script>
+</body>
+</html>

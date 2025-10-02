@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13-16</title>
+
+</head>
+<body>
+    <style>
+        .active{
+            background-color: gray;
+            border: 1px solid black;
+            margin: 5px;
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+    13번
+    <br>
+    <button id="button">활성화</button>
+    <div id="box1"></div>
+    <hr>
+
+    14번
+    <div id="box2" style="width: 100px; height: 
+    100px;"></div>
+    <hr>
+
+    15번
+    <br>
+    <a id="link" href="https://naver.com">네이버</a>
+    <hr>
+
+    16번
+    <img id="logo" src="logo.png">
+
+
+
+
+    <script>
+        // --------------------------13번 ----------------------------------
+
+        let button = document.getElementById('button');
+        button.addEventListener('click',()=>{
+            let box1 = document.getElementById('box1');
+            box1.classList.toggle('active');
+        })
+        
+        //---------------------------14번------------------------------------
+
+        let back_change = document.getElementById('box2');
+        back_change.style.backgroundColor = 'red';
+
+        //---------------------------15번------------------------------------
+
+        // 그냥 요소노드 . 속성노드 하면 속성노드까지 접근이 가능함.
+        // 추가로 textContent = 까지 붙이면 텍스트노드까지 접근함.
+        let link_change = document.getElementById('link');
+        link_change.href = "https://google.com";
+
+        //---------------------------16번------------------------------------
+        
+        let logoConsole = document.getElementById('logo');
+        console.log(logoConsole.src);
+        
+        //-------------------------------------------------------------------
+
+    </script>
+
+    
+</body>
+</html>
