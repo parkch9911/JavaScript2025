@@ -374,6 +374,21 @@ a{
     font-size: 22px;
     cursor: pointer;
     margin-top: 30px;
+    position: relative;
+}
+#contain-all .header-box .header-bottom .header-bottom-right .fa-solid.fa-user.active::before{
+    content: '\f00d';
+    font-family: 'Font Awesome 5 Free';
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    transform: translate(-20%,-20%);
+    line-height: 32px;
 }
 /* 헤더 1번 토글 */
 .header-toggle-1-on{
@@ -480,6 +495,7 @@ a{
 .header-toggle-2-on{
     display: none;
     background-color: #352461;
+    height: 400px;
 }
 .header-toggle-2-on.active{
     display: block;
@@ -528,9 +544,11 @@ a{
     text-decoration: underline;
 }
 .header-toggle-2-on .header-toggle-2-container .header-toggle-2-right{
+    position: absolute;
+    right: -150px;
     margin-top: 110px;
-    margin-left: 150px;
     position: relative;
+    text-align: left;
 }
 .header-toggle-2-on .header-toggle-2-container .header-toggle-2-right input{
     background-color: transparent;
@@ -559,17 +577,23 @@ a{
     display: none;
     background-color: #333;
 }
-.header-toggle-3-on .header-toggle-2-container{
+.header-toggle-3-on.active{
+    display: block;
+    z-index: 110;
+    position: absolute;
+    width: 100%;
+}
+.header-toggle-3-on .header-toggle-3-container{
     width: 1100px;
     margin: 0 auto;
     text-align: center;
     padding: 25px 0;
 }
-.header-toggle-3-on .header-toggle-2-container p{
+.header-toggle-3-on .header-toggle-3-container p{
     color: white;
     margin-bottom: 15px;
 }
-.header-toggle-3-on .header-toggle-2-container button{
+.header-toggle-3-on .header-toggle-3-container button{
     border: 1px solid white;
     border-radius: 5px;
     padding: 4px 30px;
@@ -579,7 +603,7 @@ a{
     margin-right: 10px;
     cursor: pointer;
 }
-.header-toggle-3-on .header-toggle-2-container a{
+.header-toggle-3-on .header-toggle-3-container a{
     color: rgb(176, 176, 176);
     font-size: 13px;
     text-decoration: underline;
@@ -784,6 +808,11 @@ a{
     width: 100%;
     bottom: 160px;
     left: 0;
+}
+.footer-toggle-on.active{
+    display: block;
+    position: absolute;
+    z-index: 20;
 }
 .footer-toggle-on .footer-toggle-container{
     width: 1100px;

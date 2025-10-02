@@ -57,7 +57,7 @@
                     </div>
                     <div class="header-bottom-right">
                         <a href="#"><i class="fa-solid fa-calendar-days"></i></a>
-                        <a href="#"id="header-toggle-btn3"><i class="fa-regular fa-user"></i></a>
+                        <a href="#"id="header-toggle-btn3"><i class="fa-solid fa-user"></i></a>
                     </div>
                 </div>
             </header> 
@@ -167,16 +167,16 @@
         <div class="header-toggle-2-on">
             <div class="header-toggle-2-container">
                 <button class="booked">예매율 순</button>
-                <button class="booked">메가박스 관객순</button>
+                <button class="people">메가박스 관객순</button>
                 <div class="header-toggle-2-flexbox">
                     <div class="header-toggle-2-left">
-                        <img src="어쩔수가없다.jpg">
+                        <img id="change-img" src="어쩔수가없다.jpg">
                         <ol>
-                            <li class="booked-list">어쩔수가없다</li>
-                            <li class="booked-list">극장판 체인소 맨:레제편</li>
-                            <li class="booked-list">보스</li>
-                            <li class="booked-list">워킹맨</li>
-                            <li class="booked-list">극장판 귀멸의 칼날: 무한성편</li>
+                            <li class="booked-list1">어쩔수가없다</li>
+                            <li class="booked-list2">극장판 체인소 맨:레제편</li>
+                            <li class="booked-list3">보스</li>
+                            <li class="booked-list4">워킹맨</li>
+                            <li class="booked-list5">극장판 귀멸의 칼날: 무한성편</li>
                         </ol>
                     </div>
                     <div class="header-toggle-2-right">
@@ -189,7 +189,7 @@
         
         <!------------------------------ 우측 토글 -------------------------------------------->
         <div class="header-toggle-3-on">
-            <div class="header-toggle-2-container">
+            <div class="header-toggle-3-container">
                 <p>영화를 사랑하는 당신을 위한 꼭 맞는 혜택까지 확인해 보세요!</p>
                 <button type="button">로그인</button>
                 <a href="#">혹시 아직 회원이 아니신가요?</a>
@@ -608,7 +608,6 @@
             //인원수 초기, 최대값
         let count = 0;
         const maxcount = 8;
-
         // ------------------------------------addEvent--------------------------------
                 // count 결국 전체 인원 8명 이상시 모달창
                 // textcontent  첫 클릭 시 모달창 뜨게
@@ -689,7 +688,7 @@
                 count++;
             if(count === 1){
                 modalOneuse.style.display = 'none';
-                modalText.innerHTML = `※만 65세이상 고객님께서는 [경로]발권 부탁드립니다(*지점별 상이)<br><br>
+                modalText.innerHTML =  `※만 65세이상 고객님께서는 [경로]발권 부탁드립니다(*지점별 상이)<br><br>
                                         ◆우대요금은 장애인 고객에게 적용되며, 상영관 입장 시 본인확인 증빙서류를 제시해 주시기 바랍니다.<br>
                                         (미지참 시 입장 제한)<br><br>
                                         -장애인 : 복지카드<br>
@@ -738,16 +737,89 @@
             headerLeftToggleFont1.classList.toggle('active');
             console.log(headerLeftToggleBox1)
         })
-        // -------------------------------헤더 좌측 2번 토글----------------------------------------
+        // -------------------------------헤더 좌측 2번 토글 ----------------------------------------
         let headerLeftToggleBtn2 = document.querySelector('#header-toggle-btn2');
         let headerLeftToggleBox2 = document.querySelector('.header-toggle-2-on');
         let headerLeftToggleFont2 = document.querySelector('.fa-solid.fa-magnifying-glass')
             headerLeftToggleBtn2.addEventListener('click',()=>{
             headerLeftToggleBox2.classList.toggle('active');
             headerLeftToggleFont2.classList.toggle('active');
-
         })
-         /* 좌석 개수 만큼의 빈 배열 생성*/
+
+        let bookRank = document.querySelector('.booked');
+        let peopleRank = document.querySelector('.people');
+        let changeImg = document.querySelector('#change-img');
+        let bookList1 = document.querySelector('.booked-list1');
+        let bookList2 = document.querySelector('.booked-list2');
+        let bookList3 = document.querySelector('.booked-list3');
+        let bookList4 = document.querySelector('.booked-list4');
+        let bookList5 = document.querySelector('.booked-list5');
+
+        bookRank.addEventListener('click',()=>{
+
+            changeImg.src = "어쩔수가없다.jpg"
+            bookList1.textContent = '어쩔수가없다'
+            bookList2.textContent = '극장판 체인소 맨:레제편'
+            bookList3.textContent = '보스'
+            bookList4.textContent = '워킹맨'
+            bookList5.textContent = '극장판 귀멸의 칼날:무한성편'
+        })
+        peopleRank.addEventListener('click',()=>{
+            changeImg.src = "f1.jpg"
+            bookList1.textContent = 'F1 더 무비'
+            bookList2.textContent = '좀비딸'
+            bookList3.textContent = '극장판 귀멸의 칼날:무한성편'
+            bookList4.textContent = '진격의 거인 완결편 더 라스트 어택'
+            bookList5.textContent = '하얼빈'
+        })
+            bookList1.addEventListener('mouseover',()=>{
+                if(bookList1.textContent == '어쩔수가없다'){
+                    changeImg.src = "어쩔수가없다.jpg"
+                }else  changeImg.src = "f1.jpg"
+            })
+            bookList2.addEventListener('mouseover',()=>{
+                if(bookList2.textContent == '극장판 체인소 맨:레제편'){
+                    changeImg.src = "체인소맨.jpg"
+                }else  changeImg.src = "좀비딸.jpg"
+            })
+            bookList3.addEventListener('mouseover',()=>{
+                if(bookList3.textContent == '보스'){
+                    changeImg.src = "보스.jpg"
+                }else  changeImg.src = "귀칼.jpg"
+            })
+            bookList4.addEventListener('mouseover',()=>{
+                if(bookList4.textContent == '워킹맨'){
+                    changeImg.src = "워킹맨.jpg"
+                }else  changeImg.src = "진격거.jpg"
+            })
+            bookList5.addEventListener('mouseover',()=>{
+                if(bookList5.textContent == '극장판 귀멸의 칼날:무한성편'){
+                    changeImg.src = "귀칼.jpg"
+                }else  changeImg.src = "하얼빈.jpg"
+            })
+
+            //-----------------------------헤더 우측 토글------------------------------------------
+
+        let headerRightToggleBtn = document.querySelector('#header-toggle-btn3');
+        let headerRightToggleBox = document.querySelector('.header-toggle-3-on');
+        let headerRightToggleFont = document.querySelector('.fa-solid.fa-user');
+            headerRightToggleBtn.addEventListener('click',()=>{
+            headerRightToggleBox.classList.toggle('active');
+            headerRightToggleFont.classList.toggle('active');
+        })
+        //--------------------------------------푸터 토글---------------------------------------------------
+
+        let footerToggleBtn = document.querySelector('#footer-toggle');
+        let footerToggleBox = document.querySelector('.footer-toggle-on');
+            footerToggleBtn.addEventListener('click',()=>{
+            footerToggleBox.classList.toggle('active');
+        })
+        let footerToggleClose = document.querySelector('#footer-toggle-close');
+            footerToggleClose.addEventListener('click',()=>{
+            footerToggleBox.classList.remove('active');
+            })
+
+         /* 좌석 개수 만큼의 빈 배열 생성---------------------------------------------------------------------------------*/
         let seat = Array.from(Array(10),() => new Array(10).fill(''));
         let seatTable = document.getElementById('seat-table');
         let spel = document.getElementById('spel');
@@ -791,11 +863,8 @@
         }
         /* console.log(tableResult) */
         table.innerHTML=tableResult;
-        
-        
 
         /* 테이블 요소에서 좌표 */
-        
         
 
         /* info 부분 시간 선택창 */
@@ -838,8 +907,6 @@
             }else{
                 alert('X')
             }
-
-            
             money.textContent=`${result.length*16000}`
         }
 
@@ -851,8 +918,6 @@
         }
         
         //-----------------------------------------------------------------------------
-        //모달창-----------------------------------------
-
 
 
     </script>
